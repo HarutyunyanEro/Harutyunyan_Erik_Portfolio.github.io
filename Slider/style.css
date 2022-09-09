@@ -4,17 +4,22 @@
     box-sizing: border-box;
 }
 
-body{
-    background: black;
-}
 
-.carusel{
+.box{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+}
+.carusel{
+    display: flex;
+    height: 60vh;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
     perspective: 1000px;
-    animation: slid 2s linear 1;
+    background: black;
 }
 
 .slider{
@@ -23,8 +28,8 @@ body{
     position: relative;
     transform-style: preserve-3d;
     transition: .5s;
-    animation:carusel 17s linear infinite;
     animation-delay: 2s;
+    transform: rotateX(-15deg) rotateY(0deg);
 }
 
 .item{
@@ -41,35 +46,11 @@ body{
         height: 100%;
         object-fit:cover;
         object-position: center;
-        animation: item 2s linear 1;
         transition: .5s;
     }
 
  
-    @keyframes carusel{
-        0%{
-            transform: rotateY(0deg) rotateX(0deg);
-        }
-        100%{
-            transform: rotateY(360deg) rotateX(360deg);
-        }
-    }
 
-    @keyframes item{
-        0%{
-            transform: rotate3d(0deg) scale(-1) translateX(500px);
-            width: 20%;
-            border-radius: 50%;
-            box-shadow: 0 0 2px white, 0 0 5px white, 0 0 10px white, inset 0 0 50px white;
-        }
-
-        100%{
-            transform: rotate3d(10,10,10,360deg) scale(1) translateX(0);
-            width: 100%;
-            border-radius: 0;
-            box-shadow: none;
-        }
-    } 
 
     .slider:hover{
         animation-play-state: paused;
@@ -79,12 +60,4 @@ body{
       transform: translateY(-10px);
     }
 
-    @keyframes slid{
-        0%{
-            perspective: 8000px;
-        }
-
-        100%{
-            perspective: 1000px;
-        }
-    } 
+ 
